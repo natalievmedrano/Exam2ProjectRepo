@@ -1,0 +1,31 @@
+
+<link rel="stylesheet" href="/css/style.css">
+<section class="product-grid">
+
+    <% products.forEach(product => { %>
+
+        <article class="product-card">
+
+            <img
+                src="/images/<%= product.image %>"
+                alt="<%= product.name %>"
+                class="product-image"
+            >
+
+            <div class="product-info">
+
+                <h3><%= product.name %></h3>
+
+                
+
+                <a href="/product/<%= product.id %>" class="view-product">
+                    VIEW PRODUCT
+                </a>
+
+            </div>
+
+        </article>
+
+    <% }); %>
+
+</section>
