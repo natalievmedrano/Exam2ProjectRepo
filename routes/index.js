@@ -8,7 +8,7 @@ const router = express.Router();
 // Website categories
 const siteCategories = ['tops', 'bottoms', 'shoes', 'accessories'];
 
-// Custom product names
+// custom product names
 const productNames = {
 
     //tops
@@ -37,14 +37,30 @@ const productNames = {
     'glasses.png': 'Stylish Sunglasses'
 };
 
-// Product collection
+//product information/details
+const productDetails = {
+    'tops-1': {
+        description: 'Classic everyday blue blouse for everyday wear. This elegant piece is made of 100% cotton, making it very lightweight, and perfect to wear for any occassion.',
+        price: 25.00,
+        sizes: ['XS', 'S', 'M','L', 'XL', '2XL']
+    },
+
+    'tops-2':{
+        description: 'Stylish long sleeve brown blouse. Made of 95% polyester, this beautiful blouse is perfect for nights out, classy dinners, or everyday wear.',
+        price: 35.00,
+        sizes: ['XS', 'S', 'M','L', 'XL', '2XL']
+    }
+}
+
+
+//collection
 const products = [];
 
 siteCategories.forEach(category => {
     const folderPath = path.join(__dirname, '../public/images', category);
 
     if (fs.existsSync(folderPath)) {
-        const productImg = fs.readdirSync(folderPath);
+        const productImg = fs.readdirSync(folderPath).sort();
 
         productImg.forEach((image, index) => {
             products.push({
@@ -56,18 +72,21 @@ siteCategories.forEach(category => {
                     .replace(/\b\w/g, letter => letter.toUpperCase()),
 
                 category: category,
-                image: `${category}/${image}`
+                image: `${category}/${image}`,
+                description: productDetails[`${category}-${index + 1}`]?.description || 'A beautiful addition to your wardrobe.',
+                price: productDetails[`${category}-${index + 1}`]?.price || 19.99,
+                sizes: productDetails[`${category}-${index + 1}`]?.sizes || ['One Size']
             });
         });
     }
 });
 
-// For the homepage
+// homepage
 router.get('/', (req, res) => {
     res.render('pages/home');
 });
 
-// For the shop page
+// shop page
 router.get('/shop', (req, res) => {
     const category = req.query.category;
 
@@ -82,6 +101,19 @@ router.get('/shop', (req, res) => {
     res.render('pages/shop', {
         products: filteredProducts,
         selectedCategory: category || 'all'
+    });
+});
+
+// product page
+router.get('/product/:id', (req, res) => {
+    const product = products.find(p => p.id === req.params.id);
+
+    if (!product) {
+        return res.status(404).send('Product not found');
+    }
+
+    res.render('pages/productInfo', {
+        product: product
     });
 });
 
