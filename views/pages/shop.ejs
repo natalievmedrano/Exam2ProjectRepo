@@ -1,31 +1,65 @@
 
-<link rel="stylesheet" href="/css/style.css">
-<section class="product-grid">
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Shop | VELA</title>
+    <link rel="stylesheet" href="/css/style.css">
+</head>
+<body>
 
-    <% products.forEach(product => { %>
+    <%- include('../partials/header') %>
 
-        <article class="product-card">
+    <main class="shop-page">
 
-            <img
-                src="/images/<%= product.image %>"
-                alt="<%= product.name %>"
-                class="product-image"
-            >
+        <section class="shop-heading">
+           
 
-            <div class="product-info">
+            <% if (selectedCategory === 'bottoms') { %>
+                <h1>Our Pants Collection</h1>
+                <p>Find the perfect pant for your elegant outfits.</p>
 
-                <h3><%= product.name %></h3>
+            <% } else if (selectedCategory === 'tops') { %>
+                <h1>Our Tops Collection</h1>
+                <p>Discover your next favorite tops.</p>
 
-                
+            <% } else {
+            %>
+                <h1>Discover Your Style</h1>
+                <p>Find something that feels like you.</p>
+            <% } %>
+        </section>
 
-                <a href="/product/<%= product.id %>" class="view-product">
-                    VIEW PRODUCT
-                </a>
+        <section class="product-grid">
 
-            </div>
+            <% products.forEach(product => { %>
 
-        </article>
+                <article class="product-card">
 
-    <% }); %>
+                    <img
+                        src="/images/<%= product.image %>"
+                        alt="<%= product.name %>"
+                        class="product-image"
+                    >
 
-</section>
+                    <div class="product-info">
+                        <h3><%= product.name %></h3>
+
+                        <a href="/product/<%= product.id %>" class="view-product">
+                            VIEW PRODUCT
+                        </a>
+                    </div>
+
+                </article>
+
+            <% }); %>
+
+        </section>
+
+    </main>
+
+    <%- include('../partials/footer') %>
+
+</body>
+</html>

@@ -10,12 +10,21 @@ const siteCategories = ['tops', 'bottoms', 'shoes', 'accessories'];
 
 // Custom product names
 const productNames = {
-    'black blouse.jpg': 'Classic Black Blouse',
-    'blue blouse.jpg': 'Blue Button-Up Blouse',
-    'orange.webp': 'Orange Summer Top',
-    'pink blouse.webp': 'Pink Blouse',
-    'red top.jpg': 'Red Statement Top',
-    'yellow top.jpg': 'Yellow Summer Top'
+
+    //tops
+    'blueTop.png': 'Classic Blue Blouse',
+    'brownTop.png': 'Long Sleeve Brown Blouse',
+    'pinkTop.png': 'Chic Pink Summer Top',
+    'purpleTop.png': 'Chic Purple Blouse',
+    'whiteTop.png': 'White Statement Top',
+    'zebraTop.png': 'Long-Sleeve Zebra Top',
+
+    //pants
+    'khakiPant.png': 'Long Khaki Pants',
+    'blackPant.png': 'Stylish Black Slacks',
+    'corduroy.png': 'Beautiful Corduroy Pants',
+    'lightBluePant.png': 'Fashionable Light Blue Jeans',
+    'stripedPant.png': 'Chic Striped Pants'
 };
 
 // Product collection
