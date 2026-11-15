@@ -24,12 +24,17 @@
                 <h1>Our Tops Collection</h1>
                 <p>Discover your next favorite tops.</p>
 
-            <% } else {
+            <% } else if (selectedCategory === 'shoes') {
             %>
-                <h1>Discover Your Style</h1>
-                <p>Find something that feels like you.</p>
-            <% } %>
-        </section>
+                <h1>Your next favorite pair of shoes</h1>
+                <p>Find a shoe that feels like YOU.</p>
+            
+                <% } else if (selectedCategory === 'accessories') {%>
+                        <h1>The perfect finishing touch</h1>
+                        <p>Find the perfect accesory to complete your VELA look.</p>
+               <% } %>
+               
+                    </section>
 
         <section class="product-grid">
 

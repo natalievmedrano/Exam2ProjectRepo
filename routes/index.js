@@ -24,7 +24,17 @@ const productNames = {
     'blackPant.png': 'Stylish Black Slacks',
     'corduroy.png': 'Beautiful Corduroy Pants',
     'lightBluePant.png': 'Fashionable Light Blue Jeans',
-    'stripedPant.png': 'Chic Striped Pants'
+    'stripedPant.png': 'Chic Striped Pants',
+
+    //shoes
+    'blueHeel.png': 'Classy Blue Heels',
+    'brownBoots.png': 'Brown Heeled Boots',
+    'sparklyShoes.png': 'Fun Sparkly Sneakers',
+
+    //accessories
+    'brownPurse.png': 'Brown Purse',
+    'pinkEarring.png': 'Classic Pink Petal Earrings',
+    'glasses.png': 'Stylish Sunglasses'
 };
 
 // Product collection
