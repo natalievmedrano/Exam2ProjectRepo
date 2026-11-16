@@ -86,6 +86,68 @@ router.get('/', (req, res) => {
     res.render('pages/home');
 });
 
+// login page
+const users = [];
+
+router.get('/login', (req, res) => {
+    res.render('pages/login');
+});
+
+// login user
+router.post('/login', (req, res) => {
+    try {
+        const { email, password } = req.body;
+
+        const user = users.find(
+            user => user.email === email && user.password === password
+        );
+
+        if (!user) {
+            return res.status(401).send('Invalid email or password');
+        }
+
+        res.redirect('/shop');
+
+    } catch (error) {
+        res.status(500).send('Login failed');
+    }
+});
+
+// register page
+router.get('/register', (req, res) => {
+    res.render('pages/register');
+});
+
+// register user
+router.post('/register', (req, res) => {
+    try {
+        const { name, email, password, confirmPassword } = req.body;
+
+        if (password !== confirmPassword) {
+            return res.status(400).send('Passwords do not match');
+        }
+
+        const existingUser = users.find(user => user.email === email);
+
+        if (existingUser) {
+            return res.status(400).send('Account already exists with this email');
+        }
+
+        const newUser = {
+            id: users.length + 1,
+            name,
+            email,
+            password
+        };
+
+        users.push(newUser);
+        res.redirect('/login');
+        
+    } catch (error) {
+        res.status(500).send('Error registering user');
+    }
+});
+
 // shop page
 router.get('/shop', (req, res) => {
     const category = req.query.category;
@@ -115,6 +177,33 @@ router.get('/product/:id', (req, res) => {
     res.render('pages/productInfo', {
         product: product
     });
+});
+
+// shopping cart page
+const cart = [];
+
+router.get('/cart', (req, res) => {
+    res.render('pages/cart', {
+        cartItems: cart
+    });   
+});
+
+router.post('/cart/add/:id', (req, res) => {
+    const product = products.find(p => p.id === req.params.id);
+
+    if(product) {
+        cart.push({...product, quantity: 1});
+    }
+    res.redirect('/cart');
+});
+
+router.post('/cart/remove/:id', (req, res) => {
+    const itemIndex = cart.findIndex(item => item.id === req.params.id);
+    
+    if (itemIndex !== -1) {
+        cart.splice(itemIndex, 1);
+    }
+    res.redirect('/cart');
 });
 
 module.exports = router;

@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>VELA | Register</title>
+
+    <link rel="stylesheet" href="/css/style.css">
+</head>
+
+<body>
+
+    <%- include('../partials/header') %>
+
+    <main>
+        <section class="login-section">
+            <div class="login-container">
+                <p>Welcome to VELA!</p>
+                <h1>Create an Account</h1>
+                <p>Join us and explore our luxury selections!</p>
+
+                <form action="/register" method="POST" class="login-form">
+
+                    <div class="form-group">
+                        <label for="name">Full Name</label>
+                        <input
+                            type="text"
+                            id="name"
+                            name="name"
+                            placeholder="Enter your full name"
+                            required
+                        >
+                    </div>
+
+                    <div class="form-group">
+                        <label for="email">Email Address</label>
+                        <input
+                            type="email"
+                            id="email"
+                            name="email"
+                            placeholder="Enter your email"
+                            required
+                        >
+                    </div>
+
+                    <div class="form-group">
+                        <label for="password">Password</label>
+                        <input
+                            type="password"
+                            id="password"
+                            name="password"
+                            placeholder="Create a password"
+                            required
+                        >
+                    </div>
+
+                    <div class="form-group">
+                        <label for="confirmPassword">Confirm Password</label>
+                        <input
+                            type="password"
+                            id="confirmPassword"
+                            name="confirmPassword"
+                            placeholder="Confirm your password"
+                            required
+                        >
+                    </div>
+
+                    <button type="submit" class="login-button">
+                        REGISTER
+                    </button>
+
+                </form>
+
+                <div class="login-links">
+                    <p>
+                        Already have an account?
+                        <a href="/login">Sign In</a>
+                    </p>
+                </div>
+            </div>
+        </section>
+    </main>
+<%- include('../partials/footer') %>
+</body>
+</html>
