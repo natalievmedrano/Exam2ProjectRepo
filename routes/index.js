@@ -38,7 +38,9 @@ const productNames = {
 };
 
 //product information/details
+
 const productDetails = {
+    //tops
     'tops-1': {
         description: 'Classic everyday blue blouse for everyday wear. This elegant piece is made of 100% cotton, making it very lightweight, and perfect to wear for any occassion.',
         price: 25.00,
@@ -49,7 +51,32 @@ const productDetails = {
         description: 'Stylish long sleeve brown blouse. Made of 95% polyester, this beautiful blouse is perfect for nights out, classy dinners, or everyday wear.',
         price: 35.00,
         sizes: ['XS', 'S', 'M','L', 'XL', '2XL']
-    }
+    },
+
+    "tops-3":{
+        description:'A chic pink summer top, perfect for adding a feminine touch to your closet.',
+        price: 22.00,
+        sizes: ['XS', 'S', 'M','L', 'XL', '2XL']
+    },
+
+    "tops-4":{
+        description:'A beautiful dazzling purple blouse that brings elegance and a pop of color to your life.',
+        price: 22.00,
+        sizes: ['XS', 'S', 'M','L', 'XL', '2XL']
+    },
+
+    "tops-5":{
+        description: 'A timeless white top that can be styled perfectly for casual outfits',
+        price: 32.00,
+        sizes: ['XS', 'S', 'M','L', 'XL', '2XL']
+    },
+
+    "tops-6":{
+        description:'A bold long-sleeve zebra print top, amazing for adding a statment pieve to your closet.',
+        price: 30.00,
+        sizes: ['XS', 'S', 'M','L', 'XL', '2XL']
+    },
+
 }
 
 
@@ -147,6 +174,8 @@ router.post('/register', (req, res) => {
         res.status(500).send('Error registering user');
     }
 });
+
+
 
 // shop page
 router.get('/shop', (req, res) => {
