@@ -466,3 +466,42 @@ body {
         grid-template-columns: repeat(2, 1fr);
     }
 }
+
+/* FOOTER */
+
+.fashion-footer {
+    background-color: #171717;
+    color: white;
+    text-align: center;
+    padding: 40px 20px;
+    margin-top: 60px;
+}
+
+.footer-brand {
+    margin-bottom: 20px;
+}
+
+.footer-brand .fashionLogo {
+    color: white;
+    text-decoration: none;
+    font-family: 'Playfair Display', serif;
+    font-size: 32px;
+    letter-spacing: 4px;
+}
+
+.footer-brand p {
+    margin-top: 10px;
+    font-size: 13px;
+    letter-spacing: 2px;
+    color: #D9D9D9;
+}
+
+.footer-bottom {
+    border-top: 1px solid #444;
+    padding-top: 20px;
+}
+
+.footer-bottom p {
+    font-size: 12px;
+    color: #BDBDBD;
+}
