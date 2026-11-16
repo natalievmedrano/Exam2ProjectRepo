@@ -246,6 +246,84 @@ body {
     }
 }
 
+/* Login Section */
+/* LOGIN / REGISTER */
+
+.login-section {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 80px 20px;
+}
+
+.login-container {
+    max-width: 500px;
+    width: 100%;
+    background-color: #F8DCE8;
+    padding: 40px;
+    text-align: center;
+}
+
+.login-container h1 {
+    font-family: 'Playfair Display', serif;
+    font-size: 40px;
+    margin-bottom: 15px;
+}
+
+.login-container p {
+    margin-bottom: 20px;
+}
+
+.login-form {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.form-group {
+    text-align: left;
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: 8px;
+    font-size: 13px;
+}
+
+.form-group input {
+    width: 100%;
+    padding: 12px;
+    border: 1px solid #D9B8C5;
+    font-family: 'Poppins', sans-serif;
+}
+
+.login-button {
+    background-color: #E65B91;
+    color: white;
+    border: none;
+    padding: 14px;
+    cursor: pointer;
+    font-size: 13px;
+    letter-spacing: 1px;
+    transition: 0.3s;
+}
+
+.login-button:hover {
+    background-color: #171717;
+}
+
+.login-links {
+    margin-top: 20px;
+}
+
+.login-links a {
+    color: #E65B91;
+    text-decoration: none;
+}
+
+.login-links a:hover {
+    text-decoration: underline;
+}
 
 /* PRODUCT CARDS */
 
