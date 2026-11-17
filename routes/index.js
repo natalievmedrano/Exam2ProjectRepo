@@ -293,7 +293,7 @@ router.get('/product/:id', (req, res) => {
 const cart = [];
 
 router.get('/cart', (req, res) => {
-    res.render('pages/cart', {
+    res.render('pages/shoppingCart', {
         cartItems: cart
     });   
 });
