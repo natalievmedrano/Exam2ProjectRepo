@@ -156,31 +156,6 @@ body {
     text-decoration: underline;
 }
 
-/* Footer */
-
-.site-footer {
-    background-color: #171717;
-    color: white;
-    text-align: center;
-    padding: 35px 20px;
-}
-
-.site-footer p:first-child {
-    font-family: 'Playfair Display', serif;
-    font-size: 28px;
-    letter-spacing: 5px;
-}
-
-.site-footer span {
-    font-size: 10px;
-    letter-spacing: 4px;
-}
-
-.site-footer p:last-child {
-    margin-top: 20px;
-    font-size: 11px;
-}
-
 /* Responsive Design */
 
 @media (max-width: 768px) {
@@ -301,7 +276,6 @@ body {
 }
 
 /* Login Section */
-/* LOGIN / REGISTER */
 
 .login-section {
     display: flex;
