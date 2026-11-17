@@ -208,4 +208,31 @@ router.get('/product/:id', (req, res) => {
     });
 });
 
+// shopping cart page
+const cart = [];
+
+router.get('/cart', (req, res) => {
+    res.render('pages/cart', {
+        cartItems: cart
+    });   
+});
+
+router.post('/cart/add/:id', (req, res) => {
+    const product = products.find(p => p.id === req.params.id);
+
+    if(product) {
+        cart.push({...product, quantity: 1});
+    }
+    res.redirect('/cart');
+});
+
+router.post('/cart/remove/:id', (req, res) => {
+    const itemIndex = cart.findIndex(item => item.id === req.params.id);
+    
+    if (itemIndex !== -1) {
+        cart.splice(itemIndex, 1);
+    }
+    res.redirect('/cart');
+});
+
 module.exports = router;

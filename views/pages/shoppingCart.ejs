@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>VELA | Shopping Cart</title>
+    <link rel="stylesheet" href="/css/style.css">
+</head>
+<body>
+    <%- include('../partials/header') %>
+
+    <main>
+        <section class="cart-section">
+            <div class = "cart-header">
+                <h1>Shopping Cart</h1>
+            </div>
+
+            <% if (!cartItems || cartItems.length === 0) { %>
+                <div class ="empty-cart">
+                    <p>Your shopping cart is empty.</p>
+                    <a href="/shop" class="shop-button">Continue Shopping</a>
+                </div>
+            <% } else { %>
+                <div class="cart-container">
+                    <% cartItems.forEach(item => { %>
+                        <div class= "cart-item">
+                            <img src="/images/<%= item.image %>" 
+                            alt="<%= item.name %>"
+                            class="cart-image">
+
+                            <div class="cart-item-details">
+                                <h2><%= item.name %></h2>
+                                <p>Category: <%= item.category %></p>
+                               <% if (item.size) { %>
+                                    <p>Size: <%= item.size %></p>
+                                <% } %>
+                                <p>Price: $<%= item.price.toFixed(2) %></p>
+                                <p>Quantity: <%= item.quantity || 1 %></p>
+                            </div>
+
+                            <div class="cart-total"> 
+                                $<%= ((item.quantity || 1) * item.price).toFixed(2) %>
+                            </div>
+
+                            <form action="/cart/remove/<%= item.id %>" method="POST" class="remove-item-form">
+                                <button type="submit" class="remove-item-button">Remove</button>
+                            </form>
+                        </div>
+                    <% }); %>
+                    </div>
+                    <% let totalPrice = 0;
+                    cartItems.forEach(item => {
+                        totalPrice += (item.quantity || 1) * item.price;
+                    }); %>
+                    <div class="cart-summary">
+                        <h2>Order Summary</h2>
+
+                        <div class="summary-row">
+                            <span>Subtotal:</span>
+                            <span>$<%= totalPrice.toFixed(2) %></span>
+                        </div>
+
+                        <div class="summary-row">
+                            <span>Shipping:</span>
+                            <span>FREE</span>
+                        </div>
+
+                        <div class="summary-row total">
+                            <span>Total:</span>
+                            <span>$<%= totalPrice.toFixed(2) %></span>
+                        </div>
+                        <button class="checkout-button">Proceed to Checkout</button>
+                    </div>
+                <% } %>
+            
+        </section>
+    </main>
+    <%- include('../partials/footer') %>
+</body>
+</html>
