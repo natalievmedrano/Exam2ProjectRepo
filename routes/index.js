@@ -316,6 +316,52 @@ router.post('/cart/remove/:id', (req, res) => {
     res.redirect('/cart');
 });
 
+//checkout page
+router.get('/checkout', (req,res) => {
+    if(cart.length === 0) {
+        return res.redirect('/cart');
+    }
+
+    let totalPrice = 0;
+
+    cart.forEach(item => {
+        totalPrice += (item.quantity || 1) * item.price;
+    });
+
+    res.render('pages/checkout', {
+        cartItems: cart,
+        totalPrice: totalPrice
+    });
+});
+
+//for order confirmation 
+router.post('/checkout', (req,res) => {
+    const {name, email, address, city, state, zip } = req.body;
+
+    let totalPrice = 0;
+
+    cart.forEach(item => {
+        totalPrice += (item.quantity || 1) * item.price;
+    });
+
+    const order = {
+        name,
+        email,
+        address,
+        city,
+        state,
+        zip,
+        items: [...cart],
+        total: totalPrice
+    };
+
+    cart.length = 0;
+
+    res.render('pages/orderConfirmation', {
+        order: order
+    });
+})
+
 // admin page
 
 // admin page

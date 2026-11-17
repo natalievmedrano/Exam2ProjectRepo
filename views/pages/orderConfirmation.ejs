@@ -1,0 +1,45 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>VELA | Order Confirmation</title>
+    <link rel="stylesheet" href="/css/style.css">
+</head>
+<body>
+
+    <%- include('../partials/header') %>
+
+    <main class="confirmation-section">
+        <div class="confirmation-card">
+
+            <div class="confirmation-check">&#10003;</div>
+
+            <h1>Thank You for Your Order!</h1>
+
+            <p class="confirmation-message">
+                Your order has been successfully placed.
+                Please check your email for shipping details.
+            </p>
+
+            <p class="confirmation-name">
+                Thank you for shopping with VELA, <%= order.name %>!
+            </p>
+
+            <div class="confirmation-total">
+                <span>Order Total:</span>
+                <strong>$<%= order.total.toFixed(2) %></strong>
+            </div>
+
+            <a href="/shop" class="shop-button">
+                CONTINUE SHOPPING
+            </a>
+
+        </div>
+    </main>
+
+    <%- include('../partials/footer') %>
+
+</body>
+</html>

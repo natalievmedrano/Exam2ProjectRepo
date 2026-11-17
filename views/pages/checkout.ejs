@@ -1,0 +1,77 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>VELA | Checkout</title>
+    <link rel="stylesheet" href="/css/style.css">
+</head>
+<body>
+
+    <%- include('../partials/header') %>
+
+    <main class="checkout-section">
+        <h1>Checkout</h1>
+        <p>Complete your information to place your order.</p>
+
+        <div class="checkout-container">
+
+            <form action="/checkout" method="POST" class="checkout-form">
+
+                <h2>Shipping Information</h2>
+
+                <label for="name">Full Name</label>
+                <input type="text" id="name" name="name" required>
+
+                <label for="email">Email Address</label>
+                <input type="email" id="email" name="email" required>
+
+                <label for="address">Street Address</label>
+                <input type="text" id="address" name="address" required>
+
+                <label for="city">City</label>
+                <input type="text" id="city" name="city" required>
+
+                <label for="state">State</label>
+                <input type="text" id="state" name="state" required>
+
+                <label for="zip">ZIP Code</label>
+                <input type="text" id="zip" name="zip" required>
+
+                <button type="submit" class="checkout-button">
+                    Place Order
+                </button>
+
+            </form>
+
+            <div class="checkout-summary">
+                <h2>Your Order</h2>
+
+                <% cartItems.forEach(item => { %>
+                    <div class="summary-row">
+                        <span><%= item.name %> (x<%= item.quantity || 1 %>)</span>
+                        <span>
+                            $<%= ((item.quantity || 1) * item.price).toFixed(2) %>
+                        </span>
+                    </div>
+                <% }); %>
+
+                <div class="summary-row">
+                    <span>Shipping</span>
+                    <span>FREE</span>
+                </div>
+
+                <div class="summary-row total">
+                    <span>Total</span>
+                    <span>$<%= totalPrice.toFixed(2) %></span>
+                </div>
+            </div>
+
+        </div>
+    </main>
+
+    <%- include('../partials/footer') %>
+
+</body>
+</html>
