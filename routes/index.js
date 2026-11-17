@@ -77,6 +77,78 @@ const productDetails = {
         sizes: ['XS', 'S', 'M','L', 'XL', '2XL']
     },
 
+    //bottoms
+    "bottoms-1":{
+        description:'Stylish classic black slacks. Perfect for a polished and classy look.',
+        price: 40.00,
+        sizes: ['XS', 'S', 'M','L', 'XL', '2XL']
+    },
+
+    "bottoms-2":{
+        description: 'Flashy corduroy pants that bring a classic style to your closet.',
+        price: 45.00,
+        sizes: ['XS', 'S', 'M','L', 'XL', '2XL']
+    },
+
+    "bottoms-3":{
+        description: 'Stylish versatile khaki pants. Perfect for casual everyday outings',
+        price: 35.00,
+        sizes: ['XS', 'S', 'M','L', 'XL', '2XL']
+    },
+
+    
+    "bottoms-4":{
+        description:'Classic light blue jeans that make a great addition to any outfit.',
+        price: 30.00,
+        sizes: ['XS', 'S', 'M','L', 'XL', '2XL']
+    },
+
+    "bottoms-5":{
+        description:'Chic striped pants that add a unique and fun pattern to your closet.',
+        price: 45.00,
+        sizes: ['XS', 'S', 'M','L', 'XL', '2XL']
+    },
+
+    //shoes
+    
+    "shoes-1":{
+        description:'Elegant sparkly blue shoes that add a stylish touch to your beautiful outift.',
+        price:23.00,
+        sizes: ['6', '7', '8','9', 'Request Custom Size']
+    },
+
+    "shoes-2":{
+        description: 'Fun Sparkly sneakers that bring the ultimate shine and personality to your closet.',
+        price:30.00,
+        sizes: ['6', '7', '8','9', 'Request Custom Size']
+    },
+
+    "shoes-3":{
+        description:'Classic brown heeled boots that create an effortlessly perfect timeless look',
+        price: 50.00,
+        sizes: ['6', '7', '8','9', 'Request Custom Size']
+    },
+
+    //accessories
+    
+    "accessories-1":{
+        description: 'Stylish beautiful brown leather purse that compliments any outfit perfectly.',
+        price: 40.00,
+        sizes: ['One Size']
+    },
+
+    "accessories-2":{
+        description:'Cute sunglasses that add the perfect finishing touch to your ICONIC outfit.',
+        price: 15.00,
+        sizes: ['One Size']
+    },
+
+    "accessories-3":{
+        description:'Beautiful pink petal earrings, adds a delicate and feminine touch!',
+        price:20.00,
+        sizes: ['Silver', 'Gold']
+    }
+
 }
 
 
