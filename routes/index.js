@@ -307,4 +307,51 @@ router.post('/cart/remove/:id', (req, res) => {
     res.redirect('/cart');
 });
 
+// admin page
+
+// admin page
+router.get('/admin', (req, res) => {
+    res.render('pages/admin', {
+        products
+    });
+});
+
+//admin add product
+router.post('/admin/add', (req, res) => {
+
+    const {
+        name,
+        category,
+        price,
+        image,
+        description
+    } = req.body;
+
+    products.push({
+        id: `product-${Date.now()}`,
+        name,
+        category,
+        image,
+        description,
+        price: parseFloat(price),
+        sizes: ['S', 'M', 'L', 'XL']
+    });
+
+    res.redirect('/admin');
+});
+
+// admin delete product
+router.post('/admin/delete/:id', (req, res) => {
+
+    const index = products.findIndex(
+        product => product.id === req.params.id
+    );
+
+    if (index !== -1) {
+        products.splice(index, 1);
+    }
+
+    res.redirect('/admin');
+});
+
 module.exports = router;

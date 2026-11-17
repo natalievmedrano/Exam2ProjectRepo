@@ -12,6 +12,57 @@ body {
     color: #171717;
 }
 
+/* Admin Section */
+.admin-page {
+    max-width: 1100px;
+    margin: 60px auto;
+    padding: 20px;
+}
+
+.admin-header,
+.admin-card {
+    text-align: center;
+}
+
+.admin-header h1,
+.admin-card h2,
+.admin-product h3 {
+    font-family: 'Playfair Display', serif;
+}
+
+.admin-card {
+    background-color: #F8DCE8;
+    padding: 30px;
+    margin-bottom: 25px;
+}
+
+.admin-card form {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.admin-card input,
+.admin-card textarea {
+    padding: 12px;
+    border: 1px solid #D9B8C5;
+}
+
+.admin-product {
+    background-color: white;
+    padding: 15px;
+    margin-top: 15px;
+
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.admin-actions {
+    display: flex;
+    gap: 10px;
+}
+
 /* Hero Section */
 
 .hero {
