@@ -247,7 +247,16 @@ router.post('/register', (req, res) => {
     }
 });
 
+// tracking orders
+const orders = [];
 
+router.get('/orders', (req, res) => {
+
+    res.render('pages/orderTracker', {
+        orders
+    });
+
+});
 
 // shop page
 router.get('/shop', (req, res) => {

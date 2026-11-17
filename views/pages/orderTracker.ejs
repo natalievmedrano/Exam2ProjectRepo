@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" >
+    <title>VELA | Order Tracker</title>
+    <link rel="stylesheet" href="/css/style.css">
+</head>
+
+<body>
+
+    <%- include('../partials/header') %>
+
+    <main>
+        <section class="login-section">
+            <div class="login-container">
+                <p>TRACK YOUR PURCHASES</p>
+                <h1>Order Tracker</h1>
+
+                <% if (!orders || orders.length === 0) { %>
+
+                    <p>You currently have no active orders.</p>
+
+                    <a href="/shop" class="shop-button">
+                        START SHOPPING
+                    </a>
+
+                <% } else { %>
+                    <% orders.forEach(order => { %>
+                        <div class="order-card">
+
+                            <h2>Order #<%= order.id %></h2>
+
+                            <p>
+                                Status:
+                                <strong><%= order.status %></strong>
+                            </p>
+
+                            <p>
+                                Total:
+                                $<%= order.total.toFixed(2) %>
+                            </p>
+
+                            <% if (order.items) { %>
+
+                                <p>Items:</p>
+
+                                <ul>
+                                    <% order.items.forEach(item => { %>
+                                        <li>
+                                            <%= item %>
+                                        </li>
+
+                                    <% }) %>
+                                </ul>
+                            <% } %>
+                        </div>
+                    <% }) %>
+                <% } %>
+
+            </div>
+        </section>
+    </main>
+
+    <%- include('../partials/footer') %>
+
+</body>
+</html>

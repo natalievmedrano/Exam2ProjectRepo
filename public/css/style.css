@@ -353,6 +353,19 @@ body {
     text-decoration: underline;
 }
 
+/* Tracking Orders */
+.order-card {
+    background-color: white;
+    padding: 20px;
+    margin-top: 20px;
+    text-align: left;
+}
+
+.order-card h2 {
+    font-family: 'Playfair Display', serif;
+    margin-bottom: 10px;
+}
+
 /* PRODUCT CARDS */
 
 .product-grid {
