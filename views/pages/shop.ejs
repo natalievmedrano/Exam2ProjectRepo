@@ -13,6 +13,13 @@
 
     <main class="shop-page">
 
+        <% if (search) { %>
+            <section class="shop-heading">
+                <h1>Search Results</h1>
+                <p>Showing results for "<%= search %>"</p>
+            </section>
+        <%} %>
+
         <section class="shop-heading">
            
 
@@ -38,7 +45,13 @@
 
         <section class="product-grid">
 
-            <% products.forEach(product => { %>
+            <% if (products.length === 0) { %>
+                <p class="no-results">
+                    No products with that name were found. Try again.
+                </p>
+
+            <%} else { %>
+                <% products.forEach(product => { %>
 
                 <article class="product-card">
 
@@ -59,6 +72,9 @@
                 </article>
 
             <% }); %>
+           <% } %>
+
+            
 
         </section>
 

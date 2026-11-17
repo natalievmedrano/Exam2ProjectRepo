@@ -252,18 +252,27 @@ router.post('/register', (req, res) => {
 // shop page
 router.get('/shop', (req, res) => {
     const category = req.query.category;
+    const search = req.query.search;
 
     let filteredProducts = products;
 
+    //by category   
     if (category) {
         filteredProducts = products.filter(product =>
             product.category === category
         );
     }
+    //by name
+    if(search){
+        filteredProducts = filteredProducts.filter(product =>
+            product.name.toLowerCase().includes(search.toLowerCase().trim())
+        );
+    }
 
     res.render('pages/shop', {
         products: filteredProducts,
-        selectedCategory: category || 'all'
+        selectedCategory: category || 'all',
+        search: search|| ''
     });
 });
 
